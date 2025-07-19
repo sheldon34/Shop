@@ -1,7 +1,7 @@
-package com.example.tryshop.Mapper;
+package com.example.tryshop.mapper;
 
-import com.example.tryshop.Dto.ProductDto;
-import com.example.tryshop.Entity.Product;
+import com.example.tryshop.dto.ProductDto;
+import com.example.tryshop.entity.Product;
 
 public class ProductMapper {
 

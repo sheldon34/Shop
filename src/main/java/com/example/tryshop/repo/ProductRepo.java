@@ -1,6 +1,6 @@
-package com.example.tryshop.Repo;
+package com.example.tryshop.repo;
 
-import com.example.tryshop.Entity.Product;
+import com.example.tryshop.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

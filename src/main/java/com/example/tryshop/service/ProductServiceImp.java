@@ -1,12 +1,10 @@
-package com.example.tryshop.Service;
+package com.example.tryshop.service;
 
-import com.example.tryshop.Dto.ProductDto;
-import com.example.tryshop.Entity.Product;
-import com.example.tryshop.Mapper.ProductMapper;
-import com.example.tryshop.Repo.ProductRepo;
-import lombok.ToString;
+import com.example.tryshop.dto.ProductDto;
+import com.example.tryshop.entity.Product;
+import com.example.tryshop.mapper.ProductMapper;
+import com.example.tryshop.repo.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,8 +15,8 @@ import java.util.stream.Collectors;
 @Service
 @Slf4j
 public class ProductServiceImp implements  ProductService{
-    private ProductRepo productRepo;
 
+    private ProductRepo productRepo;
     public ProductServiceImp(ProductRepo productRepo) {
         this.productRepo = productRepo;
     }

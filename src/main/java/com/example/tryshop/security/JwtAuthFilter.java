@@ -1,4 +1,4 @@
-package com.example.tryshop.Security;
+package com.example.tryshop.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

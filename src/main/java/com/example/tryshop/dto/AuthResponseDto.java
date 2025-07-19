@@ -1,9 +1,5 @@
-package com.example.tryshop.Dto;
+package com.example.tryshop.dto;
 
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 //
 ////@NoArgsConstructor
@@ -17,7 +13,7 @@ import lombok.NoArgsConstructor;
 //        this.tokentype = tokentype;
 //    }
 //}
-////package com.example.tryshop.Dto;
+////package com.example.tryshop.dto;
 
     public class AuthResponseDto {
     private String token;

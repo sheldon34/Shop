@@ -1,6 +1,5 @@
-package com.example.tryshop.Security;
+package com.example.tryshop.security;
 
-import jakarta.security.auth.message.config.AuthConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

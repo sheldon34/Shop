@@ -1,4 +1,4 @@
-package com.example.tryshop.Security;
+package com.example.tryshop.security;
 
 public class SecurityConstants {
     public static final long JWTexpiration = 70000; // 5 hours in milliseconds

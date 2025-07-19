@@ -1,37 +1,24 @@
-package com.example.tryshop.Entity;
+package com.example.tryshop.dto;
 
-import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
-@Entity
-@Table(name ="Product")
 @ToString
 @Slf4j
 @Builder
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column (name="id")
-    private Long id;
-    private String productName;
+@NoArgsConstructor
+@AllArgsConstructor
 
+public class ProductDto {
+    private Long id;
+   // @JsonProperty("ProductName")
+    private String productName;
     private String price;
     private String description;
     private String quantity;
-    @Lob
-    private byte[] image;
-
-    public Product(Long id, String productName, String price, String description, String quantity, byte[] image) {
-        this.id = id;
-        this.productName = productName;
-        this.price = price;
-        this.description = description;
-        this.quantity = quantity;
-        this.image = image;
-    }
-
     public Long getId() {
         return id;
     }
@@ -72,14 +59,13 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public byte[] getImage() {
-        return image;
+
+
+    public ProductDto(Long id, String productName, String price, String description, String quantity, byte[] image) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
     }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
-
-    public Product(){}
-
 }

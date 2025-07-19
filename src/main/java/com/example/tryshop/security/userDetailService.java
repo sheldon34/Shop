@@ -1,8 +1,8 @@
-package com.example.tryshop.Security;
+package com.example.tryshop.security;
 
-import com.example.tryshop.Entity.RolesEntity;
-import com.example.tryshop.Entity.UseEntity;
-import com.example.tryshop.Repo.UserRepo;
+import com.example.tryshop.entity.RolesEntity;
+import com.example.tryshop.entity.UseEntity;
+import com.example.tryshop.repo.UserRepo;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

@@ -1,7 +1,7 @@
 package com.example.tryshop.RepoTest;
 
-import com.example.tryshop.Entity.Product;
-import com.example.tryshop.Repo.ProductRepo;
+import com.example.tryshop.entity.Product;
+import com.example.tryshop.repo.ProductRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

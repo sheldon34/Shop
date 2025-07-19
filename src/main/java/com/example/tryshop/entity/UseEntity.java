@@ -1,4 +1,4 @@
-package com.example.tryshop.Entity;
+package com.example.tryshop.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.management.relation.Role;
 import java.util.ArrayList;
 import java.util.List;
 

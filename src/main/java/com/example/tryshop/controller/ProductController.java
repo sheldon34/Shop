@@ -1,22 +1,20 @@
-package com.example.tryshop.Controler;
+package com.example.tryshop.controller;
 
-import com.example.tryshop.Dto.ProductDto;
-import com.example.tryshop.Repo.ProductRepo;
-import com.example.tryshop.Service.ProductService;
+import com.example.tryshop.dto.ProductDto;
+import com.example.tryshop.repo.ProductRepo;
+import com.example.tryshop.service.ProductService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.awt.datatransfer.StringSelection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
+@Slf4j
 @RestController
-@RequestMapping("/api/product" )
-
+@RequestMapping("/api/product")
 public class ProductController {
     private ProductService productService;
     private ProductRepo productRepo;
@@ -27,14 +25,14 @@ public class ProductController {
     }
     // creating a new product
 @PostMapping("/upload")
-    ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto){
+   public ResponseEntity<ProductDto> createProduct(@RequestBody ProductDto productDto){
         ProductDto product=productService.createProduct(productDto);
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
 
 // getting all products
 @GetMapping("/getAll")
-ResponseEntity<Map<String, Object> >getAllProducts(
+public ResponseEntity<Map<String, Object> >getAllProducts(
 //@RequestBody ProductDto productDto
         @RequestParam(value="pageNo", defaultValue="0" ,required=false)
         int pageNo,
@@ -43,18 +41,26 @@ ResponseEntity<Map<String, Object> >getAllProducts(
         @RequestParam(value="sortBy", defaultValue = "id") String sortBy,
         @RequestParam(value="sortDirection", defaultValue = "asc") String sortDirection
 ){
-Page<ProductDto> product = productService.getAllProducts(pageNo, pageSize , sortBy, sortDirection);
+
+        try {
+            Page<ProductDto> product = productService.getAllProducts(pageNo, pageSize, sortBy, sortDirection);
 
 //showing meta data
-Map<String , Object> response=new HashMap<>();
-response.put("products", product.getContent());
-response.put("currentPage", product.getNumber());
-response.put("totalItems", product.getTotalElements());
-response.put("totalPages", product.getTotalPages());
+            Map<String, Object> response = new HashMap<>();
+            response.put("products", product.getContent());
+            response.put("currentPage", product.getNumber());
+            response.put("totalItems", product.getTotalElements());
+            response.put("totalPages", product.getTotalPages());
 
-         return new ResponseEntity<>(response, HttpStatus.OK);
+            return new ResponseEntity<>(response, HttpStatus.OK);
 
-
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            // Log the error or handle it as needed
+            log.info(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 
@@ -86,7 +92,7 @@ ResponseEntity<ProductDto> getProductById(@PathVariable("id") Long id) {
 }
 // Uploading the Image
     @PostMapping("/uploadImage")
-
+    @CrossOrigin(origins = "http://localhost:5173")
 public ResponseEntity<String>  uploadProduct(
         @RequestParam("name") String name,
         @RequestParam("Image") MultipartFile file

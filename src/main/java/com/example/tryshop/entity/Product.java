@@ -1,25 +1,37 @@
-package com.example.tryshop.Dto;
+package com.example.tryshop.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.*;
 import lombok.Builder;
-import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
+@Entity
+@Table(name ="Product")
 @ToString
 @Slf4j
 @Builder
-@NoArgsConstructor
-@AllArgsConstructor
-
-public class ProductDto {
+public class Product {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column (name="id")
     private Long id;
-   // @JsonProperty("ProductName")
     private String productName;
+
     private String price;
     private String description;
     private String quantity;
+    @Lob
+    private byte[] image;
+
+    public Product(Long id, String productName, String price, String description, String quantity, byte[] image) {
+        this.id = id;
+        this.productName = productName;
+        this.price = price;
+        this.description = description;
+        this.quantity = quantity;
+        this.image = image;
+    }
+
     public Long getId() {
         return id;
     }
@@ -60,13 +72,14 @@ public class ProductDto {
         this.quantity = quantity;
     }
 
-
-
-    public ProductDto(Long id, String productName, String price, String description, String quantity, byte[] image) {
-        this.id = id;
-        this.productName = productName;
-        this.price = price;
-        this.description = description;
-        this.quantity = quantity;
+    public byte[] getImage() {
+        return image;
     }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public Product(){}
+
 }

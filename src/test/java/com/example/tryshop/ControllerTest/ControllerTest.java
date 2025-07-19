@@ -1,9 +1,9 @@
 //package com.example.tryshop.ControllerTest;
 //
-//import com.example.tryshop.Dto.ProductDto;
-//import com.example.tryshop.Entity.Product;
-//import com.example.tryshop.Repo.ProductRepo;
-//import com.example.tryshop.Service.ProductService;
+//import com.example.tryshop.dto.ProductDto;
+//import com.example.tryshop.entity.Product;
+//import com.example.tryshop.repo.ProductRepo;
+//import com.example.tryshop.service.ProductService;
 //import com.fasterxml.jackson.databind.ObjectMapper;
 //import lombok.extern.slf4j.Slf4j;
 //import org.junit.jupiter.api.BeforeEach;
